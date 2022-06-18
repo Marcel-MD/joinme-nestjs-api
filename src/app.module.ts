@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './type-orm-config.service';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ProfileModule } from './profile/profile.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ProfileModule } from './profile/profile.module';
     }),
     AuthModule,
     ProfileModule,
+    EmailModule,
   ],
   controllers: [AppController],
   providers: [
