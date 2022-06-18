@@ -16,7 +16,7 @@ More information about [Docker](https://www.docker.com/).
 $ docker-compose up
 ```
 
-Use [pgAdmin](https://www.pgadmin.org/) to connect to PostgreSQL and create a new database named `juris`.\
+Use [pgAdmin](https://www.pgadmin.org/) to connect to PostgreSQL and create a new database named `joinme`.\
 Default connection details can be found in `type-orm-config.service.ts` file in `src` folder.\
 For a custom connection create a `.env` file in root directory and add the custom properties you need.
 
