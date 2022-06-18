@@ -51,7 +51,7 @@ export default class EmailService {
       }
 
       const info = await this.nodemailerTransport.sendMail({
-        from: '"Juris ⚖️" <' + this.configService.get('EMAIL_USER') + '>',
+        from: '"JoinMe 🤗" <' + this.configService.get('EMAIL_USER') + '>',
         to: user.email,
         subject: subject,
         html: html,
