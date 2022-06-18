@@ -8,6 +8,7 @@ import { TypeOrmConfigService } from './type-orm-config.service';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ProfileModule } from './profile/profile.module';
 import { EmailModule } from './email/email.module';
+import { EventModule } from './event/event.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { EmailModule } from './email/email.module';
     AuthModule,
     ProfileModule,
     EmailModule,
+    EventModule,
   ],
   controllers: [AppController],
   providers: [
