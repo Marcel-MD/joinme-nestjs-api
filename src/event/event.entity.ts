@@ -9,11 +9,11 @@ export class Event {
     id: number;
     
     @ApiProperty()
-    @Column()
+    @Column({ type: "float"})
     lat: number;
 
     @ApiProperty()
-    @Column()
+    @Column({type: "float"})
     lng: number;
 
     @ApiProperty()
