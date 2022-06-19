@@ -6,7 +6,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DeleteResult, Repository } from 'typeorm';
+import { DeleteResult, Repository, ILike } from 'typeorm';
 import { Event } from './event.entity';
 import { Category } from 'src/enums/categoryEnum';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -66,17 +66,14 @@ export class EventService {
 
   public async findByName(name: string): Promise<Event[]> {
     this.logger.debug(`Getting events by name ${name}`);
-    return await this.eventRepository.find({
-      where: { name },
-      relations: ['attendees'],
-      join: {
-        alias: 'event',
-        leftJoinAndSelect: {
-          user: 'event.user',
-          profile: 'user.profile',
-        },
-      },
-    });
+    return await this.eventRepository
+      .createQueryBuilder('event')
+      .leftJoinAndSelect('event.attendees', 'a')
+      .leftJoinAndSelect('event.user', 'u')
+      .leftJoinAndSelect('u.profile', 'p')
+      .where(`event.name ILIKE '%${name}%'`)
+      .orWhere(`event.description ILIKE '%${name}%'`)
+      .getMany()
   }
 
   public async findById(id: number): Promise<Event> {
