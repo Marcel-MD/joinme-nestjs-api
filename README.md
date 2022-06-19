@@ -35,3 +35,6 @@ $ npm run start
 ## Swagger UI
 
 To access Swagger UI go to [localhost:3000/api](http://localhost:3000/api).
+
+## Application frontend
+[JoinMe frontend](https://github.com/darynella2001/FAFHackaton)
