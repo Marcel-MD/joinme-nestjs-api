@@ -1,9 +1,8 @@
 export enum Category {
-    Basketball = "Basketball",
-    Concert = "Concert",
-    Party = "Party",
-    Football = "Football",
-    Sport = "Sport",
-    Competition = "Competition",
-    Hackathon = "Hackathon",
+  Concert = 'Concert',
+  Party = 'Party',
+  Sports = 'Sports',
+  Competition = 'Competition',
+  Educational = 'Educational',
+  Kids = 'Kids',
 }

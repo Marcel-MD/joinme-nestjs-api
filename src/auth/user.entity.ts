@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude } from 'class-transformer';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Profile } from 'src/profile/profile.entity';
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
 import { Role } from './role.enum';
 
 @Entity()
@@ -25,4 +26,8 @@ export class User {
   @ApiProperty()
   @Column()
   creationDate: Date;
+
+  @ApiProperty()
+  @OneToOne(() => Profile, (profile) => profile.user)
+  profile: Profile;
 }
